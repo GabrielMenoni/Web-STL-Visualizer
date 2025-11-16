@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+@theme {
+    --color-dark: #141414;
+
+    --font-DM: 'DM Sans', sans-serif;
+}
+
+@layer base {
+
+    html,
+    body,
+    #app {
+        font-family: var(--font-DM);
+    }
+}
