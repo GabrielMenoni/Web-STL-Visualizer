@@ -14,8 +14,7 @@ A web-based 3D viewer for STL files with real-time transformations and multi-mod
 
 ## 🎥 Demo
 
-<!-- Add your demo video or GIF here -->
-*Demo video coming soon*
+https://github.com/user-attachments/assets/c7c3804e-d033-4611-a3b3-0a1da35c55de
 
 ## 🛠️ Technologies
 
