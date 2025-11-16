@@ -50,7 +50,7 @@ function formatFileName(fileName: string): string {
  */
 export function FileList({ files, onFileSelect, selectedFile, onToggleVisibility }: FileListProps) {
     return (
-        <ul className="list-none p-0 mb-4 overflow-y-auto max-h-80 w-fit">
+        <ul className="list-none p-0 mb-4 overflow-y-auto max-h-80 w-80">
             {files.map((file) => {
                 const isSelected = file === selectedFile;
                 const isVisible = file.visible !== false; // Padrão é visível
@@ -58,20 +58,20 @@ export function FileList({ files, onFileSelect, selectedFile, onToggleVisibility
                 return (
                     <li
                         key={file.url}
-                        className={`mb-2 p-2 border border-gray-200 rounded w-full whitespace-nowrap flex items-center justify-between ${isSelected ? 'bg-blue-200' : 'bg-gray-100'
+                        className={`mb-2 p-2 border border-gray-200 rounded w-full flex items-center justify-between ${isSelected ? 'bg-blue-200' : 'bg-gray-100'
                             }`}
                         title={file.name} // Shows full name on hover
                     >
                         <div
-                            className="flex items-center flex-1 cursor-pointer"
+                            className="flex items-center flex-1 cursor-pointer overflow-hidden"
                             onClick={() => onFileSelect(file)}
                         >
                             <TbHexagon3D
-                                className="inline-block mr-2 text-gray-500"
+                                className="inline-block mr-2 text-gray-500 shrink-0"
                                 size={28}
                                 aria-label="3D model icon"
                             />
-                            <span className={!isVisible ? 'opacity-50' : ''}>
+                            <span className={`truncate ${!isVisible ? 'opacity-50' : ''}`}>
                                 {formatFileName(file.name)}
                             </span>
                         </div>
@@ -82,7 +82,7 @@ export function FileList({ files, onFileSelect, selectedFile, onToggleVisibility
                                 e.stopPropagation();
                                 onToggleVisibility(file);
                             }}
-                            className="ml-2 p-1 hover:bg-gray-300 rounded cursor-pointer"
+                            className="ml-2 p-1 hover:bg-gray-300 rounded cursor-pointer shrink-0"
                             title={isVisible ? 'Hide model' : 'Show model'}
                         >
                             {isVisible ? (
